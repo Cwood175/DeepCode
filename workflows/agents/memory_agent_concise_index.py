@@ -652,6 +652,8 @@ class ConciseMemoryAgent:
         formatted_summary = f"""# Code Implementation Summary
 **Generated**: {timestamp}
 **File Implemented**: {file_path}
+**Implemented Files**:
+{implemented_files_list}
 
 {llm_summary}
 
