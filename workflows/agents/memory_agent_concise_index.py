@@ -642,13 +642,6 @@ class ConciseMemoryAgent:
         """
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-        # Create formatted list of implemented files
-        implemented_files_list = (
-            "\n".join([f"- {file}" for file in self.implemented_files])
-            if self.implemented_files
-            else "- None yet"
-        )
-
         formatted_summary = f"""# Code Implementation Summary
 **Generated**: {timestamp}
 **File Implemented**: {file_path}
@@ -902,6 +895,16 @@ class ConciseMemoryAgent:
         initial_plan_message = {
             "role": "user",
             "content": f"""**Task: Implement code based on the following reproduction plan**
+
+**Implemented Files**:
+{implemented_files_list}
+
+**Unimplemented Files**:
+{unimplemented_files_list}
+
+**Reproduction Plan**:
+{plan_content}"""
+        }
 
 **Code Reproduction Plan:**
 {self.initial_plan}
