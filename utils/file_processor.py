@@ -24,6 +24,7 @@ class FileProcessor:
         Returns:
             Optional[str]: The extracted paper directory path or None if not found
         """
+        """
         try:
             # Handle direct file path input
             if isinstance(file_info, str):
