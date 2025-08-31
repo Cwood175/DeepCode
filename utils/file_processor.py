@@ -276,7 +276,6 @@ class FileProcessor:
         try:
             # 首先尝试从字符串中提取markdown文件路径
             if isinstance(file_input, str):
-                import re
 
                 file_path_match = re.search(r"`([^`]+\.md)`", file_input)
                 if file_path_match:
@@ -409,7 +408,7 @@ class FileProcessor:
         Returns:
             Optional[Dict]: Extracted JSON as dictionary or None if not found
         """
-        import re
+        
 
         # Try to find JSON in markdown code blocks
         json_pattern = r"```json\s*(\{.*?\})\s*```"

@@ -498,7 +498,7 @@ async def _process_input_source(input_source: str, logger) -> str:
 
 
 async def orchestrate_research_analysis_agent(
-    input_source: str, logger, progress_callback: Optional[Callable] = None
+    input_source: str, logger: logging.Logger, progress_callback: Optional[Callable] = None
 ) -> Tuple[str, str]:
     """
     Orchestrate intelligent research analysis and resource processing automation.
@@ -535,7 +535,7 @@ async def orchestrate_research_analysis_agent(
 
 
 async def synthesize_workspace_infrastructure_agent(
-    download_result: str, logger, workspace_dir: Optional[str] = None
+    download_result: str, logger: logging.Logger, workspace_dir: Optional[str] = None
 ) -> Dict[str, str]:
     """
     Synthesize intelligent research workspace infrastructure with automated structure generation.
@@ -578,7 +578,7 @@ async def synthesize_workspace_infrastructure_agent(
 
 
 async def orchestrate_reference_intelligence_agent(
-    dir_info: Dict[str, str], logger, progress_callback: Optional[Callable] = None
+    dir_info: Dict[str, str], logger: logging.Logger, progress_callback: Optional[Callable] = None
 ) -> str:
     """
     Orchestrate intelligent reference analysis with automated research discovery.
@@ -617,7 +617,7 @@ async def orchestrate_reference_intelligence_agent(
 
 
 async def orchestrate_document_preprocessing_agent(
-    dir_info: Dict[str, str], logger
+    dir_info: Dict[str, str], logger: logging.Logger
 ) -> Dict[str, Any]:
     """
     Orchestrate adaptive document preprocessing with intelligent segmentation control.
@@ -752,7 +752,7 @@ async def orchestrate_document_preprocessing_agent(
             "paper_dir": dir_info["paper_dir"],
             "segments_ready": False,
             "use_segmentation": False,
-            "error_message": str(e),
+            "error_message": str(e)
         }
 
 
@@ -980,7 +980,7 @@ async def orchestrate_codebase_intelligence_agent(
             "status": "error",
             "message": str(e),
             "phase": "codebase_indexing",
-            "recovery_action": "continuing_with_code_implementation",
+            "recovery_action": "continuing_with_code_implementation"
         }
 
         with open(dir_info["index_report_path"], "w", encoding="utf-8") as f:
@@ -1015,7 +1015,8 @@ async def synthesize_code_implementation_agent(
         progress_callback(85, "🔬 Synthesizing intelligent code implementation...")
 
     print(
-        "Launching intelligent code synthesis with AI-driven implementation strategies..."
+        "Launching intelligent code synthesis with AI-driven implementation"
+        "strategies..."
     )
     await asyncio.sleep(3)  # Brief pause before starting implementation
 
@@ -1023,7 +1024,8 @@ async def synthesize_code_implementation_agent(
         # Create code implementation workflow instance based on indexing preference
         if enable_indexing:
             print(
-                "🔍 Using enhanced code implementation workflow with reference indexing..."
+                "🔍 Using enhanced code implementation workflow with"
+                "reference indexing..."
             )
             code_workflow = CodeImplementationWorkflowWithIndex()
         else:
@@ -1186,7 +1188,7 @@ Please provide a detailed implementation plan that covers all aspects needed for
 
 async def execute_multi_agent_research_pipeline(
     input_source: str,
-    logger,
+    logger: logging.Logger,
     progress_callback: Optional[Callable] = None,
     enable_indexing: bool = True,
 ) -> str:
