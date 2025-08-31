@@ -134,6 +134,7 @@ async def perform_document_conversion(
         except Exception as conv_error:
             conversion_msg = f"\n   [WARNING] PDF conversion error: {str(conv_error)}"
 
+
     # 如果简单转换失败，尝试使用docling（支持图片提取）
     # if not conversion_success and DOCLING_AVAILABLE:
     #     try:
